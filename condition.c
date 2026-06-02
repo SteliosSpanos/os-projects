@@ -61,7 +61,7 @@ void *sensor_monitor(void *arg) {
   pthread_mutex_lock(&lock);
   printf("[Sensor]: Smoke detected! Sending signal...\n");
   fire_detected = 1;
-  pthread_cond_signal(&fire_cond);
+  pthread_cond_signal(&fire_cond); // pthread_cond_broadcast(&fire_cond);
   pthread_mutex_unlock(&lock);
 
   pthread_exit(NULL);
